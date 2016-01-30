@@ -6,10 +6,12 @@ public class PlayerInput : MonoBehaviour
     const float PLAYER_SPEED = 2;
 
     Vector2 velocity;
+    Rigidbody2D m_RB;
 
     void Start()
     {
         velocity = Vector2.zero;
+        m_RB = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -20,24 +22,26 @@ public class PlayerInput : MonoBehaviour
 
     void Movement()
     {
+        Vector2 newPos = this.transform.position;
+
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, PLAYER_SPEED * Time.deltaTime, 0);
+            newPos += new Vector2(0, PLAYER_SPEED * Time.deltaTime);
             //TODO add sprite animation here
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-PLAYER_SPEED * Time.deltaTime, 0, 0);
+            newPos += new Vector2(-PLAYER_SPEED * Time.deltaTime, 0);
             //TODO add sprite animation here
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0, -PLAYER_SPEED * Time.deltaTime, 0);
+            newPos += new Vector2(0, -PLAYER_SPEED * Time.deltaTime);
             //TODO add sprite animation here
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(PLAYER_SPEED * Time.deltaTime, 0, 0);
+            newPos += new Vector2(PLAYER_SPEED * Time.deltaTime, 0);
             //TODO add sprite animation here
         }
 
@@ -46,6 +50,8 @@ public class PlayerInput : MonoBehaviour
             velocity = Vector2.zero;
             //TODO add sprite animation here
         }
+
+        m_RB.MovePosition(newPos);
     }
 
     void PlayerActions()
