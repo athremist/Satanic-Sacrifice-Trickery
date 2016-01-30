@@ -8,6 +8,7 @@ public class RoomTrigger : MonoBehaviour
         if (collider.tag == "Player")
         {
             //Room transition
+            Camera.main.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -10);
         }
     }
 }
