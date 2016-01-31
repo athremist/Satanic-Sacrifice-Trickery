@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BossWeapon : MonoBehaviour
 {
-    const int DAMAGE = 12;
+    const float DAMAGE = 15;
 
     void OnTriggerEnter2D(Collider2D collider)
     {

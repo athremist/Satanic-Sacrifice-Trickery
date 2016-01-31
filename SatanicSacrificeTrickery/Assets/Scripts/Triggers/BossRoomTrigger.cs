@@ -5,6 +5,12 @@ public class BossRoomTrigger : MonoBehaviour
 {
     [SerializeField]
     GameObject m_BackWall;
+    GameObject m_Boss;
+
+    void Awake()
+    {
+        m_Boss = GameObject.FindGameObjectWithTag("Boss");
+    }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -17,6 +23,7 @@ public class BossRoomTrigger : MonoBehaviour
             boxCollider.isTrigger = false;
 
 
+             m_Boss.SetActive(true);
         }
     }
 }

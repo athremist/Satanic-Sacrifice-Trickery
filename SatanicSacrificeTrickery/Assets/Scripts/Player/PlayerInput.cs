@@ -3,15 +3,19 @@ using System.Collections;
 
 public class PlayerInput : MonoBehaviour
 {
-    const float PLAYER_SPEED = 2;
+    const float PLAYER_SPEED = 4;
 
     public float m_SpeedTest = 1;
 
     Rigidbody2D m_RB;
 
+    [SerializeField]
+    GameObject m_Weapon;
+
     void Start()
     {
         m_RB = GetComponent<Rigidbody2D>();
+        m_Weapon.SetActive(false);
     }
 
     void Update()
@@ -50,6 +54,11 @@ public class PlayerInput : MonoBehaviour
 
     void PlayerActions()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UseWeapon();
+        }
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             CanvasGroup inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<CanvasGroup>();
@@ -65,5 +74,19 @@ public class PlayerInput : MonoBehaviour
                 inventory.interactable = false;
             }
         }
+    }
+
+    void UseWeapon()
+    {
+        m_Weapon.SetActive(true);
+
+        StartCoroutine(DrawWeapon());
+
+    }
+
+    IEnumerator DrawWeapon()
+    {
+        yield return new WaitForSeconds(0.5f);
+        m_Weapon.SetActive(false);
     }
 }
