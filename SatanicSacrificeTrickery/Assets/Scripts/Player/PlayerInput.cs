@@ -11,6 +11,8 @@ public class PlayerInput : MonoBehaviour
 
     [SerializeField]
     GameObject m_Weapon;
+    [SerializeField]
+    Animator m_Animator;
 
     void Start()
     {
