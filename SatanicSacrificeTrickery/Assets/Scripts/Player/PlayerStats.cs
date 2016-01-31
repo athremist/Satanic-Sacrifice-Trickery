@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
     public float AttackDamage
     {
         get;
-        set;
+        private set;
     }
 
     void Start()
@@ -90,6 +90,11 @@ public class PlayerStats : MonoBehaviour
         {
             player.AttackSpeed = 0.001f;
         }
+    }
+
+    public void AddDamage(float aAmount)
+    {
+        AttackDamage += aAmount;
     }
 
     void Death()

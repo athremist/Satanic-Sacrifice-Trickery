@@ -35,6 +35,7 @@ public class PlayerItems : MonoBehaviour
             m_Items.Add(item);
             m_Slots.Add(Instantiate(m_InventorySlot));
             m_Slots[i].transform.SetParent(m_SlotPanel.transform);
+            m_Slots[i].transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
@@ -72,11 +73,15 @@ public class PlayerItems : MonoBehaviour
 
                     if (item.ItemSacrificeStat == "Damage")
                     {
-                        boss.ApplyDamage(item.ItemValue * 1.5f);
+                        boss.ApplyDamage(item.ItemValue * 0.5f);
                     }
                     else if (item.ItemSacrificeStat == "AttackSpeed")
                     {
                         player.AddAttackSpeed(item.ItemValue * -0.0075f);
+                    }
+                    else if (item.ItemSacrificeStat == "AttackDamage")
+                    {
+                        player.AddDamage(item.ItemValue * 0.4f);
                     }
 
                     m_Items.RemoveAt(i);
@@ -103,11 +108,11 @@ public class PlayerItems : MonoBehaviour
 
                     if (item.ItemStat == "Heal")
                     {
-                        player.AddHealth(item.ItemValue * 5);
+                        player.AddHealth(item.ItemValue * 4);
                     }
                     else if (item.ItemStat == "Speed")
                     {
-                        player.AddSpeed(item.ItemValue * 0.25f);
+                        player.AddSpeed(item.ItemValue * 0.1f);
                     }
 
                     m_Items.RemoveAt(i);

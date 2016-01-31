@@ -14,35 +14,35 @@ public class PickupSpawner : MonoBehaviour
 
     void SpawnPickup()
     {
-        if (m_RandomNumber <= 10)//10%
+        if (m_RandomNumber <= 72)//72%
         {
             GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
-        else if (m_RandomNumber <= 20)//10%
+        else if (m_RandomNumber <= 93)//22%
         {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
+            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/SoulGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
-        else if (m_RandomNumber <= 40)//20%
+        else if (m_RandomNumber <= 100)//7%
         {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
+            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/LifeGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
-        else if (m_RandomNumber <= 60)//20%
-        {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
-            pickup.transform.position = this.transform.position;
-            Destroy(this.gameObject);
-        }
-        else if (m_RandomNumber <= 100)//40%
-        {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
-            pickup.transform.position = this.transform.position;
-            Destroy(this.gameObject);
-        }
+        //else if (m_RandomNumber <= 60)//20%
+        //{
+        //    GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
+        //    pickup.transform.position = this.transform.position;
+        //    Destroy(this.gameObject);
+        //}
+        //else if (m_RandomNumber <= 100)//40%
+        //{
+        //    GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
+        //    pickup.transform.position = this.transform.position;
+        //    Destroy(this.gameObject);
+        //}
     }
 }
