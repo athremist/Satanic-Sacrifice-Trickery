@@ -4,15 +4,27 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
+    enum AttackState
+    {
+        Idle,
+        Charge,
+        Spin
+    }
+
     const float BOSS_MAX_HEALTH = 100;
 
     Vector2 m_RetreatPos;
     Vector2 m_AttackPos;
+    AttackState m_State;
+    float m_IdleTimer;
+    bool m_AttackPosAcquired;
 
     [SerializeField]
     GameObject m_HealthBar;
     [SerializeField]
     Text m_HealthAmount;
+    [SerializeField]
+    GameObject m_Weapon;
 
     public float Health
     {
@@ -26,6 +38,7 @@ public class Boss : MonoBehaviour
         m_HealthAmount.text = Health.ToString() + " / " + BOSS_MAX_HEALTH.ToString();
 
         m_RetreatPos = this.transform.position;
+        m_State = AttackState.Idle;
         this.gameObject.SetActive(false);
     }
 
@@ -34,6 +47,15 @@ public class Boss : MonoBehaviour
         if (Health >= 0)
         {
             HasDied();
+        }
+
+        if (m_State == AttackState.Idle)
+        {
+            Idle();
+        }
+        else if (m_State == AttackState.Charge)
+        {
+            ChargeAttack();
         }
     }
 
@@ -55,6 +77,54 @@ public class Boss : MonoBehaviour
     void HasDied()
     {
 
+    }
+
+    void Idle()
+    {
+        m_IdleTimer += 1 * Time.deltaTime;
+
+        if (m_IdleTimer >= 4.0f)
+        {
+            int randomState = Random.Range((int)AttackState.Charge, (int)AttackState.Spin);
+
+            m_IdleTimer = 0;
+            m_State = (AttackState)randomState;
+        }
+    }
+
+    void ChargeAttack()
+    {
+        if (m_AttackPosAcquired == false)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            m_AttackPos = player.transform.position;
+
+            Vector3 dir = m_Weapon.transform.position - player.transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+            m_Weapon.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            m_AttackPosAcquired = true;
+        }
+        else
+        {
+            Vector2 distance = new Vector2(transform.position.x, transform.position.y) - m_AttackPos;
+            Debug.Log(distance.magnitude);
+            if (distance.magnitude <= 1)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                Vector3 dir = m_Weapon.transform.position - player.transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+                m_Weapon.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+                m_State = AttackState.Idle;
+                m_AttackPosAcquired = false;
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, m_AttackPos, 3 * Time.deltaTime);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)

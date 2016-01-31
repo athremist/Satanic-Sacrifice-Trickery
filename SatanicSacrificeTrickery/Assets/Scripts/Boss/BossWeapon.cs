@@ -5,11 +5,11 @@ public class BossWeapon : MonoBehaviour
 {
     const float DAMAGE = 15;
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collider.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            PlayerStats player = collider.gameObject.GetComponent<PlayerStats>();
+            PlayerStats player = collision.gameObject.GetComponent<PlayerStats>();
             player.ApplyDamage(DAMAGE);
         }
     }
