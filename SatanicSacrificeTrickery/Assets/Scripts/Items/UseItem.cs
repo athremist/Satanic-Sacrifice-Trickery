@@ -10,14 +10,19 @@ public class UseItem : MonoBehaviour, IPointerDownHandler
         if (Input.GetMouseButtonDown(0))
         {
             PlayerItems inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerItems>();
-            inventory.RemoveItem(this.transform.gameObject);
+            inventory.UseItem(this.transform.gameObject);
         }
 
         //Right click
         if (Input.GetMouseButtonDown(1))
         {
-            PlayerItems inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerItems>();
-            inventory.UseItem(this.transform.gameObject);
+            PlayerStats player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
+            if (player.AtCauldron == true)
+            {
+                PlayerItems inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerItems>();
+                inventory.SacrificeItem(this.transform.gameObject);
+            }
         }
     }
 }

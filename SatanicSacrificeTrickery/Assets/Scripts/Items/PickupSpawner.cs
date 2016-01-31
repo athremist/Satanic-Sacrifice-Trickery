@@ -16,31 +16,31 @@ public class PickupSpawner : MonoBehaviour
     {
         if (m_RandomNumber <= 10)//10%
         {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/PickupTest"));
+            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
         else if (m_RandomNumber <= 20)//10%
         {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/PickupTest"));
+            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
         else if (m_RandomNumber <= 40)//20%
         {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/PickupTest"));
+            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
         else if (m_RandomNumber <= 60)//20%
         {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/PickupTest"));
+            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }
         else if (m_RandomNumber <= 100)//40%
         {
-            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/PickupTest"));
+            GameObject pickup = Instantiate(Resources.Load<GameObject>("Pickups/BloodGem"));
             pickup.transform.position = this.transform.position;
             Destroy(this.gameObject);
         }

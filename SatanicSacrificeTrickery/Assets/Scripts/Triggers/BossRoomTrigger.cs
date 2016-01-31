@@ -22,8 +22,7 @@ public class BossRoomTrigger : MonoBehaviour
             BoxCollider2D boxCollider = m_BackWall.GetComponent<BoxCollider2D>();
             boxCollider.isTrigger = false;
 
-
-             m_Boss.SetActive(true);
+            m_Boss.SetActive(true);
         }
     }
 }

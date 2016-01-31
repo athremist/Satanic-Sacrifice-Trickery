@@ -62,9 +62,9 @@
     <Compile Include="Assets\Scripts\Boss\Boss.cs" />
     <Compile Include="Assets\Scripts\Boss\BossWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
-    <Compile Include="Assets\Scripts\Items\Items\ItemTest.cs" />
+    <Compile Include="Assets\Scripts\Items\Items\BloodGem.cs" />
     <Compile Include="Assets\Scripts\Items\PickupSpawner.cs" />
-    <Compile Include="Assets\Scripts\Items\Pickups\PickupTest.cs" />
+    <Compile Include="Assets\Scripts\Items\Pickups\PickupBloodGem.cs" />
     <Compile Include="Assets\Scripts\Items\UseItem.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerItems.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\TopDownCamera.cs" />
     <Compile Include="Assets\Scripts\Triggers\BossRoomTrigger.cs" />
+    <Compile Include="Assets\Scripts\Triggers\CauldronTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\RoomTrigger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

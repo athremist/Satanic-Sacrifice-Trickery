@@ -12,6 +12,12 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     Text m_HealthAmount;
 
+    public bool AtCauldron
+    {
+        get;
+        set;
+    }
+
     public float Health
     {
         get;
@@ -52,6 +58,38 @@ public class PlayerStats : MonoBehaviour
 
         m_HealthBar.transform.localScale = new Vector2(Health / PLAYER_MAX_HEALTH, 1);
         m_HealthAmount.text = Health.ToString() + " / " + PLAYER_MAX_HEALTH.ToString();
+    }
+
+    public void AddHealth(float aAmount)
+    {
+        if ((aAmount + Health) > PLAYER_MAX_HEALTH)
+        {
+            Health = PLAYER_MAX_HEALTH;
+        }
+        else
+        {
+            Health += aAmount;
+        }
+
+        m_HealthBar.transform.localScale = new Vector2(Health / PLAYER_MAX_HEALTH, 1);
+        m_HealthAmount.text = Health.ToString() + " / " + PLAYER_MAX_HEALTH.ToString();
+    }
+
+    public void AddSpeed(float aAmount)
+    {
+        PlayerInput player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        player.Speed += aAmount;
+    }
+
+    public void AddAttackSpeed(float aAmount)
+    {
+        PlayerInput player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        player.AttackSpeed += aAmount;
+
+        if (player.AttackSpeed <= 0.001f)
+        {
+            player.AttackSpeed = 0.001f;
+        }
     }
 
     void Death()

@@ -44,7 +44,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if (Health >= 0)
+        if (Health <= 0)
         {
             HasDied();
         }
@@ -56,6 +56,10 @@ public class Boss : MonoBehaviour
         else if (m_State == AttackState.Charge)
         {
             ChargeAttack();
+        }
+        else if (m_State == AttackState.Spin)
+        {
+            Idle();
         }
     }
 
@@ -76,7 +80,7 @@ public class Boss : MonoBehaviour
 
     void HasDied()
     {
-
+        this.gameObject.SetActive(false);
     }
 
     void Idle()
@@ -108,7 +112,6 @@ public class Boss : MonoBehaviour
         else
         {
             Vector2 distance = new Vector2(transform.position.x, transform.position.y) - m_AttackPos;
-            Debug.Log(distance.magnitude);
             if (distance.magnitude <= 1)
             {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");

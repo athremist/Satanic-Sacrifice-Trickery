@@ -23,7 +23,7 @@ public class PlayerItems : MonoBehaviour
         m_SlotPanel = m_InventoryPanel.transform.FindChild("Slot Panel").gameObject;
 
         AddSlots();
-        ItemTest item = Item.CreateInstance<ItemTest>();
+        BloodGem item = Item.CreateInstance<BloodGem>();
         AddItem(item);
     }
 
@@ -47,15 +47,16 @@ public class PlayerItems : MonoBehaviour
                 //m_Items.Add(aItem);
                 GameObject item = Instantiate(m_InventoryItem);
                 item.transform.SetParent(m_Slots[i].transform);
-                //item.GetComponent<Image>().sprite = aItem.ItemSprite;
+                item.GetComponent<Image>().sprite = aItem.ItemSprite;
                 item.GetComponent<RectTransform>().localPosition = Vector2.zero;
+                item.GetComponent<RectTransform>().localScale = new Vector3(0.75f, 0.75f, 0.75f);
                 item.name = aItem.ItemName;
                 break;
             }
         }
     }
 
-    public void RemoveItem(GameObject aItem)
+    public void SacrificeItem(GameObject aItem)
     {
         for (int i = 0; i < m_Slots.Count; i++)
         {
@@ -64,6 +65,20 @@ public class PlayerItems : MonoBehaviour
             {
                 if (m_Slots[i].transform.GetChild(0).gameObject == aItem)
                 {
+                    Item item = Item.CreateInstance(aItem.name) as Item;
+
+                    PlayerStats player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+                    Boss boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
+
+                    if (item.ItemSacrificeStat == "Damage")
+                    {
+                        boss.ApplyDamage(item.ItemValue * 1.5f);
+                    }
+                    else if (item.ItemSacrificeStat == "AttackSpeed")
+                    {
+                        player.AddAttackSpeed(item.ItemValue * -0.0075f);
+                    }
+
                     m_Items.RemoveAt(i);
                     Destroy(m_Slots[i].transform.GetChild(0).gameObject);
                     break;
@@ -82,7 +97,18 @@ public class PlayerItems : MonoBehaviour
                 if (m_Slots[i].transform.GetChild(0).gameObject == aItem)
                 {
                     //Use item here / item buffs
-                    //Item item = Item.CreateInstance(aItem.name) as Item;
+                    Item item = Item.CreateInstance(aItem.name) as Item;
+
+                    PlayerStats player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
+                    if (item.ItemStat == "Heal")
+                    {
+                        player.AddHealth(item.ItemValue * 5);
+                    }
+                    else if (item.ItemStat == "Speed")
+                    {
+                        player.AddSpeed(item.ItemValue * 0.25f);
+                    }
 
                     m_Items.RemoveAt(i);
                     Destroy(m_Slots[i].transform.GetChild(0).gameObject);

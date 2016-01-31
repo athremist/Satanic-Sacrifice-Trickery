@@ -9,6 +9,18 @@ public class PlayerInput : MonoBehaviour
 
     Rigidbody2D m_RB;
 
+    public float Speed
+    {
+        get;
+        set;
+    }
+
+    public float AttackSpeed
+    {
+        get;
+        set;
+    }
+
     [SerializeField]
     GameObject m_Weapon;
     [SerializeField]
@@ -22,6 +34,8 @@ public class PlayerInput : MonoBehaviour
         m_RB = GetComponent<Rigidbody2D>();
         m_Weapon.SetActive(false);
         m_Direction = "Down";
+        Speed = m_SpeedTest;
+        AttackSpeed = 0.5f;
     }
 
     void Update()
@@ -37,19 +51,19 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            newPos += new Vector2(0, PLAYER_SPEED * m_SpeedTest * Time.deltaTime);
+            newPos += new Vector2(0, PLAYER_SPEED * Speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            newPos += new Vector2(-PLAYER_SPEED * m_SpeedTest * Time.deltaTime, 0);
+            newPos += new Vector2(-PLAYER_SPEED * Speed * Time.deltaTime, 0);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            newPos += new Vector2(0, -PLAYER_SPEED * m_SpeedTest * Time.deltaTime);
+            newPos += new Vector2(0, -PLAYER_SPEED * Speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            newPos += new Vector2(PLAYER_SPEED * m_SpeedTest * Time.deltaTime, 0);
+            newPos += new Vector2(PLAYER_SPEED * Speed * Time.deltaTime, 0);
         }
 
         m_RB.MovePosition(newPos);
@@ -164,7 +178,7 @@ public class PlayerInput : MonoBehaviour
 
     IEnumerator DrawWeapon()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(AttackSpeed);
         m_Weapon.SetActive(false);
 
         if (m_Direction == "Up")

@@ -20,4 +20,16 @@ public class Item : ScriptableObject
         get;
         protected set;
     }
+
+    public string ItemStat
+    {
+        get;
+        protected set;
+    }
+
+    public string ItemSacrificeStat
+    {
+        get;
+        protected set;
+    }
 }
