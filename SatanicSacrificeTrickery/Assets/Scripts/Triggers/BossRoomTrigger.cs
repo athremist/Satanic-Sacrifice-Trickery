@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BossRoomTrigger : MonoBehaviour
 {
+    [SerializeField]
+    Sprite m_Gate;
     [SerializeField]
     GameObject m_BackWall;
     GameObject m_Boss;
@@ -16,11 +19,9 @@ public class BossRoomTrigger : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            //Room transition
-            TopDownCamera cam = Camera.main.GetComponent<TopDownCamera>();
-            cam.targetPos = new Vector3(this.transform.position.x, this.transform.position.y, -10);
             BoxCollider2D boxCollider = m_BackWall.GetComponent<BoxCollider2D>();
             boxCollider.isTrigger = false;
+            m_BackWall.GetComponent<SpriteRenderer>().sprite = m_Gate;
 
             m_Boss.SetActive(true);
         }

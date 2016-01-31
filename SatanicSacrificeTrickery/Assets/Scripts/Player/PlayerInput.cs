@@ -144,7 +144,7 @@ public class PlayerInput : MonoBehaviour
         {
             m_Weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
             m_Weapon.transform.localPosition = new Vector3(-0.35f, 1.25f, 0.0f);
-            //m_Animator.Play("Anim_Player_PunchUp");
+            m_Animator.Play("Anim_Player_PunchUp");
         }
         else if (m_Direction == "Down")
         {
@@ -183,7 +183,7 @@ public class PlayerInput : MonoBehaviour
 
         if (m_Direction == "Up")
         {
-            //m_Animator.Play("Anim_Player_IdleForward");
+            m_Animator.Play("Anim_Player_IdleForward");
         }
         else if (m_Direction == "Down")
         {

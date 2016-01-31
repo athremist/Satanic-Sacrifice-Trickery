@@ -9,6 +9,13 @@ public class CauldronTrigger : MonoBehaviour
         {
             PlayerStats player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
             player.AtCauldron = true;
+
+            CanvasGroup inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<CanvasGroup>();
+            if (inventory.alpha == 0)
+            {
+                inventory.alpha = 1;
+                inventory.interactable = true;
+            }
         }
     }
 
@@ -18,6 +25,13 @@ public class CauldronTrigger : MonoBehaviour
         {
             PlayerStats player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
             player.AtCauldron = false;
+        }
+
+        CanvasGroup inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<CanvasGroup>();
+        if (inventory.alpha == 1)
+        {
+            inventory.alpha = 0;
+            inventory.interactable = false;
         }
     }
 }
