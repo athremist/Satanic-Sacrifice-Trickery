@@ -7,12 +7,10 @@ public class PlayerInput : MonoBehaviour
 
     public float m_SpeedTest = 1;
 
-    Vector2 velocity;
     Rigidbody2D m_RB;
 
     void Start()
     {
-        velocity = Vector2.zero;
         m_RB = GetComponent<Rigidbody2D>();
     }
 

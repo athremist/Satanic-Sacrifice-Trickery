@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraMovement : MonoBehaviour
+public class TopDownCamera : MonoBehaviour
 {
     const float m_Speed = 10;
 
@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         targetPos = this.transform.position;
+        //Camera.main.pixelRect = new Rect(0, 0, 1920, 1080);
     }
 
     void Update()
