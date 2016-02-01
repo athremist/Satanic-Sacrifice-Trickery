@@ -14,8 +14,58 @@ Platform assembly: C:\Users\Andrew\Documents\Unity Projects\Satanic-Sacrifice-Tr
 Loading C:\Users\Andrew\Documents\Unity Projects\Satanic-Sacrifice-Trickery\SatanicSacrificeTrickery\Build\SataniSacrifice\SatanicSacrifice_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Andrew\Documents\Unity Projects\Satanic-Sacrifice-Trickery\SatanicSacrificeTrickery\Build\SataniSacrifice\SatanicSacrifice_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Andrew\Documents\Unity Projects\Satanic-Sacrifice-Trickery\SatanicSacrificeTrickery\Build\SataniSacrifice\SatanicSacrifice_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.067 seconds
+- Completed reload, in  0.074 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
+Platform assembly: C:\Users\Andrew\Documents\Unity Projects\Satanic-Sacrifice-Trickery\SatanicSacrificeTrickery\Build\SataniSacrifice\SatanicSacrifice_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Andrew\Documents\Unity Projects\Satanic-Sacrifice-Trickery\SatanicSacrificeTrickery\Build\SataniSacrifice\SatanicSacrifice_Data\Managed\System.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.255696 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 179.
+Total: 0.245850 ms (FindLiveObjects: 0.021925 ms CreateObjectMapping: 0.043385 ms MarkObjects: 0.173541 ms  DeleteObjects: 0.006064 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.483303 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 537.
+Total: 0.284104 ms (FindLiveObjects: 0.032189 ms CreateObjectMapping: 0.020992 ms MarkObjects: 0.217393 ms  DeleteObjects: 0.013062 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.168999 ms
+
+Unloading 141 unused Assets to reduce memory usage. Loaded Objects now: 178.
+Total: 0.839250 ms (FindLiveObjects: 0.052715 ms CreateObjectMapping: 0.061579 ms MarkObjects: 0.411927 ms  DeleteObjects: 0.311161 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.089766 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 176.
+Total: 0.485169 ms (FindLiveObjects: 0.033122 ms CreateObjectMapping: 0.024258 ms MarkObjects: 0.413793 ms  DeleteObjects: 0.012595 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.509894 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 179.
+Total: 0.329822 ms (FindLiveObjects: 0.029856 ms CreateObjectMapping: 0.045717 ms MarkObjects: 0.241651 ms  DeleteObjects: 0.011662 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.424990 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 537.
+Total: 0.206197 ms (FindLiveObjects: 0.019126 ms CreateObjectMapping: 0.016327 ms MarkObjects: 0.160945 ms  DeleteObjects: 0.009330 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.181398 ms
+
+Unloading 158 unused Assets to reduce memory usage. Loaded Objects now: 174.
+Total: 0.638651 ms (FindLiveObjects: 0.050383 ms CreateObjectMapping: 0.036387 ms MarkObjects: 0.316759 ms  DeleteObjects: 0.234187 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.520158 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 174.
+Total: 0.257979 ms (FindLiveObjects: 0.019126 ms CreateObjectMapping: 0.015394 ms MarkObjects: 0.216926 ms  DeleteObjects: 0.006064 ms)
+
