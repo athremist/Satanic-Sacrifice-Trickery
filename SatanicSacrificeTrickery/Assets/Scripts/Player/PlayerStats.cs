@@ -99,6 +99,6 @@ public class PlayerStats : MonoBehaviour
 
     void Death()
     {
-        Application.LoadLevel(2);
+        Application.LoadLevel(3);
     }
 }

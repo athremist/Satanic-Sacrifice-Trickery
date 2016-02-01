@@ -5,6 +5,6 @@ public class StartGame : MonoBehaviour
 {
     public void StartButton()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel("IntroScene");
     }
 }

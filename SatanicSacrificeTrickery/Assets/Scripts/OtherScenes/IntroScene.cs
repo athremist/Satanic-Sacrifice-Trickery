@@ -30,7 +30,7 @@ public class IntroScene : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                Application.LoadLevel(2);
+                Application.LoadLevel("LevelScene");
             }
         }
         else
@@ -39,7 +39,7 @@ public class IntroScene : MonoBehaviour
             {
                 if (m_Skip.activeSelf)
                 {
-                    m_TextSpeed = 0.0001f;
+                    m_TextSpeed = 0.00001f;
                     m_Skip.SetActive(false);
                 }
             }
@@ -72,6 +72,6 @@ public class IntroScene : MonoBehaviour
     IEnumerator GameTransition()
     {
         yield return new WaitForSeconds(23.0f);
-        Application.LoadLevel(2);
+        Application.LoadLevel("LevelScene");
     }
 }

@@ -80,7 +80,7 @@ public class Boss : MonoBehaviour
 
     void HasDied()
     {
-        this.gameObject.SetActive(false);
+        Application.LoadLevel("WinScene");
     }
 
     void Idle()
