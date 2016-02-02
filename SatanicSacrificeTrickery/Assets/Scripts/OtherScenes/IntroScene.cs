@@ -11,6 +11,8 @@ public class IntroScene : MonoBehaviour
     [SerializeField]
     Text m_Text;
     [SerializeField]
+    GameObject m_SpeedUp;
+    [SerializeField]
     GameObject m_Skip;
 
     string m_StoreText;
@@ -26,6 +28,11 @@ public class IntroScene : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.LoadLevel("LevelScene");
+        }
+
         if (m_StoreText.Length == m_Introduction.Length)
         {
             if (Input.GetKey(KeyCode.Space))
@@ -37,17 +44,19 @@ public class IntroScene : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                if (m_Skip.activeSelf)
+                if (m_SpeedUp.activeSelf)
                 {
-                    m_TextSpeed = 0.00001f;
+                    m_TextSpeed = 0.0001f;
+                    m_SpeedUp.SetActive(false);
                     m_Skip.SetActive(false);
                 }
             }
             else
             {
-                if (!m_Skip.activeSelf)
+                if (!m_SpeedUp.activeSelf)
                 {
                     m_TextSpeed = 0.05f;
+                    m_SpeedUp.SetActive(true);
                     m_Skip.SetActive(true);
                 }
             }
