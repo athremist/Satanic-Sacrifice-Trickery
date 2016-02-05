@@ -29,7 +29,7 @@ public class PlayerItems : MonoBehaviour
 
     void AddSlots()
     {
-        for (int i = 0; i < m_AmountOfSlots; i++)
+        for (int i = 0; i < m_AmountOfSlots; ++i)
         {
             Item item = Item.CreateInstance<Item>();
             m_Items.Add(item);
@@ -41,7 +41,7 @@ public class PlayerItems : MonoBehaviour
 
     public void AddItem(Item aItem)
     {
-        for (int i = 0; i < m_AmountOfSlots; i++)
+        for (int i = 0; i < m_AmountOfSlots; ++i)
         {
             if (m_Slots[i].transform.childCount == 0)
             {
@@ -59,7 +59,7 @@ public class PlayerItems : MonoBehaviour
 
     public void SacrificeItem(GameObject aItem)
     {
-        for (int i = 0; i < m_Slots.Count; i++)
+        for (int i = 0; i < m_Slots.Count; ++i)
         {
             //Make sure the slot contains something
             if (m_Slots[i].transform.childCount > 0)
@@ -73,15 +73,15 @@ public class PlayerItems : MonoBehaviour
 
                     if (item.ItemSacrificeStat == "Damage")
                     {
-                        boss.ApplyDamage(item.ItemValue * 0.5f);
+                        boss.ApplyDamage(item.ItemValue * item.DamageModifier);
                     }
                     else if (item.ItemSacrificeStat == "AttackSpeed")
                     {
-                        player.AddAttackSpeed(item.ItemValue * -0.0075f);
+                        player.AddAttackSpeed(item.ItemValue * item.AttackSpeedModifier);
                     }
                     else if (item.ItemSacrificeStat == "AttackDamage")
                     {
-                        player.AddDamage(item.ItemValue * 0.4f);
+                        player.AddDamage(item.ItemValue * item.AttackDamageModifier);
                     }
 
                     m_Items.RemoveAt(i);
@@ -94,7 +94,7 @@ public class PlayerItems : MonoBehaviour
 
     public void UseItem(GameObject aItem)
     {
-        for (int i = 0; i < m_Items.Count; i++)
+        for (int i = 0; i < m_Items.Count; ++i)
         {
             //Make sure the slot contains something
             if (m_Slots[i].transform.childCount > 0)
@@ -108,11 +108,11 @@ public class PlayerItems : MonoBehaviour
 
                     if (item.ItemStat == "Heal")
                     {
-                        player.AddHealth(item.ItemValue * 4);
+                        player.AddHealth(item.ItemValue * item.HealModifier);
                     }
                     else if (item.ItemStat == "Speed")
                     {
-                        player.AddSpeed(item.ItemValue * 0.1f);
+                        player.AddSpeed(item.ItemValue * item.SpeedModifier);
                     }
 
                     m_Items.RemoveAt(i);

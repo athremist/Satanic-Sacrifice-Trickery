@@ -9,6 +9,8 @@ public class UseItem : MonoBehaviour, IPointerDownHandler
         //Left click
         if (Input.GetMouseButtonDown(0))
         {
+            ItemDescription des = GetComponent<ItemDescription>();
+            des.OnPointerExit(eventData);
             PlayerItems inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerItems>();
             inventory.UseItem(this.transform.gameObject);
         }
@@ -20,6 +22,8 @@ public class UseItem : MonoBehaviour, IPointerDownHandler
 
             if (player.AtCauldron == true)
             {
+                ItemDescription des = GetComponent<ItemDescription>();
+                des.OnPointerExit(eventData);
                 PlayerItems inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerItems>();
                 inventory.SacrificeItem(this.transform.gameObject);
             }

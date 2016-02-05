@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Boss\Boss.cs" />
      <Compile Include="Assets\Scripts\Boss\BossWeapon.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
+     <Compile Include="Assets\Scripts\Items\ItemDescription.cs" />
      <Compile Include="Assets\Scripts\Items\Items\BloodGem.cs" />
      <Compile Include="Assets\Scripts\Items\Items\LifeGem.cs" />
      <Compile Include="Assets\Scripts\Items\Items\SoulGem.cs" />

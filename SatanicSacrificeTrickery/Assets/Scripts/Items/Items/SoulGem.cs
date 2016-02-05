@@ -10,5 +10,8 @@ public class SoulGem : Item
         ItemSprite = Resources.Load<Sprite>("SoulGem");
         ItemStat = "Speed";
         ItemSacrificeStat = "AttackSpeed";
+
+        ItemDescriptionUse = "Increases movement speed by " + (ItemValue * SpeedModifier).ToString();
+        ItemDescriptionSacrifice = "Increases attack speed by " + (ItemValue * -DamageModifier).ToString();
     }
 }

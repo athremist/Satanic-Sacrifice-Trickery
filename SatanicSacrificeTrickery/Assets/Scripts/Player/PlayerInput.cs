@@ -25,6 +25,8 @@ public class PlayerInput : MonoBehaviour
     GameObject m_Weapon;
     [SerializeField]
     Animator m_Animator;
+    [SerializeField]
+    GameObject m_HowTo;
 
     [SerializeField]
     string m_Direction;
@@ -134,6 +136,12 @@ public class PlayerInput : MonoBehaviour
             {
                 inventory.alpha = 0;
                 inventory.interactable = false;
+            }
+
+            //Once player presses I they know how to open inventory :P
+            if (m_HowTo.activeSelf == true)
+            {
+                m_HowTo.SetActive(false);
             }
         }
     }
