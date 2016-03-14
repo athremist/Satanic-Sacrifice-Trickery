@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     GameObject m_HowTo;
 
+    Text m_HowToText;
+    bool m_HasTextChanged;
+
     [SerializeField]
     string m_Direction;
 
@@ -38,6 +42,7 @@ public class PlayerInput : MonoBehaviour
         m_Direction = "Down";
         Speed = m_SpeedTest;
         AttackSpeed = 0.5f;
+        m_HowToText = m_HowTo.GetComponent<Text>();
     }
 
     void Update()
@@ -120,6 +125,10 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (m_HowTo.activeSelf == true && m_HasTextChanged == true)
+            {
+                m_HowTo.SetActive(false);
+            }
             UseWeapon();
         }
 
@@ -139,9 +148,10 @@ public class PlayerInput : MonoBehaviour
             }
 
             //Once player presses I they know how to open inventory :P
-            if (m_HowTo.activeSelf == true)
+            if (m_HasTextChanged == false)
             {
-                m_HowTo.SetActive(false);
+                m_HasTextChanged = true;
+                m_HowToText.text = "Now press Space to attack";
             }
         }
     }
